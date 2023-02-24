@@ -1,6 +1,7 @@
 package kimjinung.hellospring.repository;
 
 import kimjinung.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 

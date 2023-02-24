@@ -1,15 +1,18 @@
 package kimjinung.hellospring.service;
 
 import kimjinung.hellospring.domain.Member;
+import kimjinung.hellospring.repository.MemberRepository;
 import kimjinung.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemoryMemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
-    public MemberService(MemoryMemberRepository memberRepository) {
+    public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 
