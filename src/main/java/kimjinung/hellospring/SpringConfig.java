@@ -1,22 +1,22 @@
 package kimjinung.hellospring;
 
-import kimjinung.hellospring.repository.JdbcMemberRepository;
-import kimjinung.hellospring.repository.JdbcTemplateMemberRepository;
-import kimjinung.hellospring.repository.MemberRepository;
-import kimjinung.hellospring.repository.MemoryMemberRepository;
+import kimjinung.hellospring.repository.*;
 import kimjinung.hellospring.service.MemberService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
 
     private final DataSource dataSource;
+    private final EntityManager em;
 
-    public SpringConfig(DataSource dataSource) {
+    public SpringConfig(DataSource dataSource, EntityManager em) {
         this.dataSource = dataSource;
+        this.em = em;
     }
 
     @Bean
@@ -28,6 +28,7 @@ public class SpringConfig {
     public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+//        return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }
