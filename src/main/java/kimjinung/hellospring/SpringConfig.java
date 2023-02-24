@@ -1,6 +1,7 @@
 package kimjinung.hellospring;
 
 import kimjinung.hellospring.repository.JdbcMemberRepository;
+import kimjinung.hellospring.repository.JdbcTemplateMemberRepository;
 import kimjinung.hellospring.repository.MemberRepository;
 import kimjinung.hellospring.repository.MemoryMemberRepository;
 import kimjinung.hellospring.service.MemberService;
@@ -26,6 +27,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+//        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
